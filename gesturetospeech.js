@@ -65,7 +65,7 @@ function handwritingToText(image) {
     });
 }
 
-exports.handler = {
+module.exports = {
   handwritingToText,
   tts
 }
