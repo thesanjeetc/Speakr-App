@@ -6,12 +6,19 @@ const port = 3000
 
 app.use(express.static(path.join(__dirname, "App/build")));
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 })
 
 app.post('/gesturetospeech', (req, res) => {
-  let body = JSON.parse(req.body);
+  console.log(req.body)
+  console.log(JSON.parse(req.body))
+
+  let body = req.body;
+
   let image = body.image;
   handwritingToText(image).then((text) => {
     tts(text).then(([text, audio]) => {
@@ -21,6 +28,7 @@ app.post('/gesturetospeech', (req, res) => {
       })
     });
   });
+
 })
 
 app.listen(port)
