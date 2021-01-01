@@ -210,8 +210,8 @@ class App extends React.Component {
       )
       .then((res) => {
         console.log(res.data);
-        let audio = "data:audio/wav;base64," + res.body.audio;
-        let text = res.body.text;
+        let audio = "data:audio/wav;base64," + res.data.body.audio;
+        let text = res.data.body.text;
         this.speech.push([text, audio]);
         var snd = new Audio(audio);
         snd.play();
