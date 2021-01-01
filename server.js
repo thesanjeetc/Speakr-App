@@ -14,11 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/gesturetospeech', (req, res) => {
-  console.log(req.body)
-  console.log(JSON.parse(req.body))
-
   let body = req.body;
-
   let image = body.image;
   handwritingToText(image).then((text) => {
     tts(text).then(([text, audio]) => {
