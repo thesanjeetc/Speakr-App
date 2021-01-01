@@ -17,7 +17,7 @@ app.post('/gesturetospeech', (req, res) => {
     tts(text).then(([text, audio]) => {
       console.log(text, audio);
       res.json({
-        body: JSON.stringify({ audio: audio, text: text }),
+        body: JSON.stringify({ audio: audio, text: text })
       })
     });
   });
