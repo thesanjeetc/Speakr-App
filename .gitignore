@@ -3,3 +3,6 @@
 # dependencies
 /node_modules
 /App/node_modules
+
+# production
+/App/build
